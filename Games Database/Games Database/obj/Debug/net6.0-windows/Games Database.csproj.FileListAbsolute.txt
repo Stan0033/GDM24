@@ -1,0 +1,25 @@
+C:\Users\stan0033_PC\source\repos\Games Database\Games Database\bin\Debug\net6.0-windows\Games Database.exe
+C:\Users\stan0033_PC\source\repos\Games Database\Games Database\bin\Debug\net6.0-windows\Games Database.deps.json
+C:\Users\stan0033_PC\source\repos\Games Database\Games Database\bin\Debug\net6.0-windows\Games Database.runtimeconfig.json
+C:\Users\stan0033_PC\source\repos\Games Database\Games Database\bin\Debug\net6.0-windows\Games Database.dll
+C:\Users\stan0033_PC\source\repos\Games Database\Games Database\bin\Debug\net6.0-windows\Games Database.pdb
+C:\Users\stan0033_PC\source\repos\Games Database\Games Database\obj\Debug\net6.0-windows\MainWindow.g.cs
+C:\Users\stan0033_PC\source\repos\Games Database\Games Database\obj\Debug\net6.0-windows\App.g.cs
+C:\Users\stan0033_PC\source\repos\Games Database\Games Database\obj\Debug\net6.0-windows\Games Database_MarkupCompile.cache
+C:\Users\stan0033_PC\source\repos\Games Database\Games Database\obj\Debug\net6.0-windows\Games Database_MarkupCompile.lref
+C:\Users\stan0033_PC\source\repos\Games Database\Games Database\obj\Debug\net6.0-windows\MainWindow.baml
+C:\Users\stan0033_PC\source\repos\Games Database\Games Database\obj\Debug\net6.0-windows\Games Database.g.resources
+C:\Users\stan0033_PC\source\repos\Games Database\Games Database\obj\Debug\net6.0-windows\Games Database.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\stan0033_PC\source\repos\Games Database\Games Database\obj\Debug\net6.0-windows\Games Database.AssemblyInfoInputs.cache
+C:\Users\stan0033_PC\source\repos\Games Database\Games Database\obj\Debug\net6.0-windows\Games Database.AssemblyInfo.cs
+C:\Users\stan0033_PC\source\repos\Games Database\Games Database\obj\Debug\net6.0-windows\Games Database.csproj.CoreCompileInputs.cache
+C:\Users\stan0033_PC\source\repos\Games Database\Games Database\obj\Debug\net6.0-windows\Games Database.dll
+C:\Users\stan0033_PC\source\repos\Games Database\Games Database\obj\Debug\net6.0-windows\refint\Games Database.dll
+C:\Users\stan0033_PC\source\repos\Games Database\Games Database\obj\Debug\net6.0-windows\Games Database.pdb
+C:\Users\stan0033_PC\source\repos\Games Database\Games Database\obj\Debug\net6.0-windows\Games Database.genruntimeconfig.cache
+C:\Users\stan0033_PC\source\repos\Games Database\Games Database\obj\Debug\net6.0-windows\ref\Games Database.dll
+C:\Users\stan0033_PC\source\repos\Games Database\Games Database\obj\Debug\net6.0-windows\enter_value.g.cs
+C:\Users\stan0033_PC\source\repos\Games Database\Games Database\obj\Debug\net6.0-windows\enter_value.baml
+C:\Users\stan0033_PC\source\repos\Games Database\Games Database\obj\Debug\net6.0-windows\previewer.g.cs
+C:\Users\stan0033_PC\source\repos\Games Database\Games Database\obj\Debug\net6.0-windows\previewer.baml
+C:\Users\stan0033_PC\source\repos\Games Database\Games Database\obj\Debug\net6.0-windows\Games Database_Content.g.cs
