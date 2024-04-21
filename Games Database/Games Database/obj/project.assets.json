@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\stan0033_PC\\source\\repos\\Games Database\\Games Database\\Games Database.csproj",
+      "projectUniqueName": "D:\\Projects\\C#\\GDM24\\GDM24\\Games Database\\Games Database\\Games Database.csproj",
       "projectName": "Games Database",
-      "projectPath": "C:\\Users\\stan0033_PC\\source\\repos\\Games Database\\Games Database\\Games Database.csproj",
+      "projectPath": "D:\\Projects\\C#\\GDM24\\GDM24\\Games Database\\Games Database\\Games Database.csproj",
       "packagesPath": "C:\\Users\\stan0033_PC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\stan0033_PC\\source\\repos\\Games Database\\Games Database\\obj\\",
+      "outputPath": "D:\\Projects\\C#\\GDM24\\GDM24\\Games Database\\Games Database\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\stan0033_PC\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fpqUoqlVJHJLKg8tahHSEB8XY4QebcRSDBF9kdzw+8pxNrP/+d7EWCV5x+b3n2shAnHAkrF/RKOjmt6qqm13Zg==",
+  "dgSpecHash": "oNvdkUVYJ1PWybWoyZ+Fq/lo3hfXDp/cL01yRboFMdFLUQVieK0OWK50OgV+3NVo1dNB8KHYWiilgfRwVlgqug==",
   "success": true,
-  "projectFilePath": "C:\\Users\\stan0033_PC\\source\\repos\\Games Database\\Games Database\\Games Database.csproj",
+  "projectFilePath": "D:\\Projects\\C#\\GDM24\\GDM24\\Games Database\\Games Database\\Games Database.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\stan0033_PC\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.26\\microsoft.windowsdesktop.app.ref.6.0.26.nupkg.sha512",
     "C:\\Users\\stan0033_PC\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.26\\microsoft.netcore.app.ref.6.0.26.nupkg.sha512",

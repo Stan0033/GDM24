@@ -24,7 +24,8 @@
                 <TextBlock Text="Tags" Width="145" Foreground="Black" Background="Gold" TextAlignment="Center" FontSize="12" FontWeight="Bold"/>
             </StackPanel>
           
-            <ListBox Name="Lister" SelectionMode="Multiple" Width="1000" Height="570" Background="Black" Foreground="White" MouseDoubleClick="DeleteRecord" SelectionChanged="SelectedItem"></ListBox>
+            <ListBox Name="Lister" SelectionMode="Multiple" Width="1000" Height="570" Background="Black" Foreground="White"
+                     MouseDoubleClick="DeleteRecord" SelectionChanged="SelectedItem"></ListBox>
 
         </StackPanel>
         <ScrollViewer VerticalScrollBarVisibility="Visible" Height="600" Width="300">

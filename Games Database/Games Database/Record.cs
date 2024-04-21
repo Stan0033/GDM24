@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using Orientation = System.Windows.Controls.Orientation;
 using Brush = System.Drawing.Brush;
+using Image = System.Windows.Controls.Image;
+using System.Windows.Media;
 
 namespace Games_Database
 {
     class Record
     {
-        public string Title { get; set; } = string.Empty;   
+        public string Title { get; set; } = string.Empty;
 
         public List<string> Tags { get; set; } = new List<string>();
         public string Series { get; set; } = string.Empty;
@@ -23,7 +25,7 @@ namespace Games_Database
         {
             return $"<{Title}|{Disk}|{Series}|{Developer}|{Publisher}|{ImageURL}|{string.Join("/", Tags)}>";
         }
-         
+
         public Record(string name, int disk, string series, string developer, string publisher, string imageUrl, List<string> tags)
         {
             Title = name;
@@ -33,7 +35,7 @@ namespace Games_Database
             Developer = developer;
             Publisher = publisher;
             ImageURL = imageUrl;
-             
+
         }
         public Record()
         {
@@ -42,20 +44,25 @@ namespace Games_Database
         public ListBoxItem GetAsItem()
         {
             ListBoxItem listBoxItem = new ListBoxItem();
-          
+
             StackPanel stackPanel = new StackPanel();
             stackPanel.Orientation = Orientation.Horizontal;
             stackPanel.Children.Add(new TextBlock() { Width = 250, Text = Title });
-            stackPanel.Children.Add(new TextBlock() { Width = 150, Text = Disk.ToString(), TextAlignment=System.Windows.TextAlignment.Center });
+            stackPanel.Children.Add(new TextBlock() { Width = 150, Text = Disk.ToString(), TextAlignment = System.Windows.TextAlignment.Center });
             stackPanel.Children.Add(new TextBlock() { Width = 150, Text = Series });
             stackPanel.Children.Add(new TextBlock() { Width = 150, Text = Developer });
             stackPanel.Children.Add(new TextBlock() { Width = 150, Text = Publisher });
             stackPanel.Children.Add(new TextBlock() { Width = 150, Text = string.Join(",", Tags) });
             if (ImageURL.Length > 0) {
-                listBoxItem.Foreground = System.Windows.Media.Brushes.Gold; 
-                listBoxItem.ToolTip = "Click"; 
-                listBoxItem.MouseDoubleClick += (sender, e) => {  previewer p = new(ImageURL);p.ShowDialog(); }; }
 
+                listBoxItem.Foreground = System.Windows.Media.Brushes.Gold;
+                ImageSource img = ImageSources.Get(ImageURL);
+
+                listBoxItem.ToolTip = new Image() { Width=230,Height=107.5, Source = img };
+                ImageSources.Sources.Add(img);
+            };
+        
+     
             listBoxItem.Content = stackPanel;
             return listBoxItem;
         }
