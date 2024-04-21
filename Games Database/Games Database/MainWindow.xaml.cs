@@ -465,7 +465,9 @@ namespace Games_Database
 
         private void Load(object sender, RoutedEventArgs e)
         {
-            string l = File.ReadAllText(Path.Combine(exeDirectory, "Database.txt"));
+            string path = Path.Combine(exeDirectory, "Database.txt");
+            if (!File.Exists(path)) { return; }
+            string l = File.ReadAllText(path);
             records.Clear();
             List<string> items = Helper.ExtractStringsInAngleBrackets(l);
            
