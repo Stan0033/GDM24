@@ -9,6 +9,10 @@ using CheckBox = System.Windows.Controls.CheckBox;
 using MessageBox = System.Windows.Forms.MessageBox;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Diagnostics;
+using SelectionMode = System.Windows.Controls.SelectionMode;
+using Clipboard = System.Windows.Clipboard;
+using System.Text.RegularExpressions;
 
 
 namespace Games_Database
@@ -145,7 +149,7 @@ namespace Games_Database
             selected. SetSame(CollectData());
             ListBoxItem i = Lister.SelectedItem as ListBoxItem;
             i = selected.GetAsItem();
-          
+            SetSaved(false);
         }
 
       
@@ -272,7 +276,20 @@ namespace Games_Database
                 }
              
         }
+        private void ViewAllNonGolden(object sender, RoutedEventArgs e)
+        {
+            Lister.Items.Clear();
 
+            foreach (Record r in records)
+            {
+                if (r.ImageURL.Trim().Length == 0)
+                {
+
+                    Lister.Items.Add(r.GetAsItem());
+                }
+            }
+
+        }
         private void ChangediskNumber(object sender, RoutedEventArgs e)
         {
             if (List_Disks.SelectedItems.Count != 1) { return; }
@@ -334,6 +351,7 @@ namespace Games_Database
             Field_Disk.Text = selected.Disk.ToString();
             Field_Dev.Text = selected.Developer;
             Field_Pub.Text = selected.Publisher;
+            Field_Url.Text = selected.ImageURL;
             FillTags(selected.Tags);
 
         }
@@ -555,6 +573,59 @@ namespace Games_Database
             }
             Search(null, null);
             SetSaved(false);
+        }
+
+        private void SearchInGoogle(object sender, RoutedEventArgs e)
+        {
+            string search = RemoveParenthesisPrefix( Field_Title.Text.Trim());// + "+Steam";
+            if (search.Length == 0) { return; }
+            SearchInGoogle(search);
+        }
+        static void SearchInGoogle(string query)
+        {
+            try
+            {
+                // Replace spaces with plus signs and encode the query
+               // string encodedQuery = Uri.EscapeDataString(query.Replace(" ", "+"));
+                string encodedQuery = query.Replace(" ", "+");
+                // Construct the Google search URL
+                string searchUrl = $"https://store.steampowered.com/search/?term={encodedQuery}";
+                // Open the URL in the default web browser
+                Process.Start(new ProcessStartInfo(searchUrl) { UseShellExecute = true });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred: {ex.Message}");
+            }
+        }
+        static string RemoveParenthesisPrefix(string input)
+        {
+            // Define a regular expression pattern to match anything enclosed in parenthesis at the start of the string
+            Regex regex = new Regex(@"^\((.*?)\)\s*");
+
+            // Check if the input string matches the pattern
+            Match match = regex.Match(input);
+
+            if (match.Success)
+            {
+                // If there's a match, remove the matched part from the input string
+                return input.Substring(match.Length);
+            }
+            else
+            {
+                // If there's no match, return the original string
+                return input;
+            }
+        }
+
+            private void Multiselect(object sender, RoutedEventArgs e)
+        {
+            Lister.SelectionMode = Check_Multiselect.IsChecked == false?SelectionMode.Single :  SelectionMode.Multiple;
+        }
+
+        private void PasteURL(object sender, RoutedEventArgs e)
+        {
+            Field_Url.Text = Clipboard.GetText();
         }
     }
 

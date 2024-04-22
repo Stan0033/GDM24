@@ -24,7 +24,7 @@
                 <TextBlock Text="Tags" Width="145" Foreground="Black" Background="Gold" TextAlignment="Center" FontSize="12" FontWeight="Bold"/>
             </StackPanel>
           
-            <ListBox Name="Lister" SelectionMode="Multiple" Width="1000" Height="570" Background="Black" Foreground="White"
+            <ListBox Name="Lister" SelectionMode="Single" Width="1000" Height="570" Background="Black" Foreground="White"
                      MouseDoubleClick="DeleteRecord" SelectionChanged="SelectedItem"></ListBox>
 
         </StackPanel>
@@ -48,18 +48,19 @@
             <TextBlock Name="RecordsCounter" Foreground="White">Records: 0</TextBlock>
             <ListBox Name="List_Disks" Height="70" MouseDoubleClick="ViewDisk" SelectionChanged="DisplayRecoprdsCount"></ListBox>
                 <StackPanel Orientation="Horizontal">
-                    <Button Foreground="White" Background="Blue"  Cursor="Hand" FontFamily="Calibri" FontSize="12" Margin="5" Click="ViewAllDisks">View all</Button>
+                    <Button Foreground="White" Background="Blue"  Cursor="Hand" FontFamily="Calibri" FontSize="12" Margin="5" Click="ViewAllDisks" MouseRightButtonDown="ViewAllNonGolden">View all</Button>
                     <Button Foreground="White" Background="Blue"  Cursor="Hand" FontFamily="Calibri" FontSize="12" Margin="5" Click="DeleteDisk">Delete</Button>
                     <Button Foreground="White" Background="Blue"  Cursor="Hand" FontFamily="Calibri" FontSize="12" Margin="5" Click="ChangediskNumber">Change Number</Button>
                     <Button Foreground="White" Background="Blue"  Cursor="Hand" FontFamily="Calibri" FontSize="12" Margin="5" Click="findDuplicates">Find duplicates</Button>
 
                 </StackPanel>
-               <StackPanel Orientation="Horizontal"> <TextBlock Foreground="White" Width="70" Text="Title"/>   <TextBox Name="Field_Title" Width="200"/> </StackPanel>
+               <StackPanel Orientation="Horizontal"> <TextBlock Foreground="White" Width="70" Text="Title"/>   <TextBox Name="Field_Title" Width="180"/><Button Click="SearchInGoogle" Width="20">S</Button> </StackPanel>
                 <StackPanel Orientation="Horizontal"> <TextBlock Foreground="White" Width="70" Text="Series"/> <TextBox Width="200" Name="Field_Series"/> </StackPanel>
                 <StackPanel Orientation="Horizontal"> <TextBlock Foreground="White" Width="70" Text="Disk"/> <TextBox Width="200" Name="Field_Disk"/> </StackPanel>
                 <StackPanel Orientation="Horizontal"> <TextBlock Foreground="White" Width="70" Text="Developer"/> <TextBox Width="200" Name="Field_Dev"/> </StackPanel>
                 <StackPanel Orientation="Horizontal"> <TextBlock Foreground="White" Width="70" Text="Publisher"/> <TextBox Width="200" Name="Field_Pub"/> </StackPanel>
-                <StackPanel Orientation="Horizontal"> <TextBlock Foreground="White" Width="70" Text="Image URL"/> <TextBox Width="200" Name="Field_Url"/> </StackPanel>
+                <StackPanel Orientation="Horizontal"> <TextBlock Foreground="White" Width="70" Text="Image URL"/> <TextBox Width="180" Name="Field_Url"/>
+                    <Button Click="PasteURL" Width="20">P</Button> </StackPanel>
                 <StackPanel Orientation="Horizontal"> <TextBlock Foreground="White" Width="70" Text="Tags"/> <ListBox Name="GenresContainer" Width="200" Height="80"/> </StackPanel>
                 <StackPanel Orientation="Horizontal" Width="280">
                     <Button Foreground="White" Background="Blue"  Cursor="Hand" FontFamily="Calibri" FontSize="12" Margin="5" Width="50" Click="NewRecord">Add</Button>
@@ -96,9 +97,13 @@
                         <Button Foreground="White"  Cursor="Hand" Background="Blue" FontFamily="Calibri" FontSize="12" Margin="5" Width="130" Click="SearchCount">Search count</Button>
 
                     </StackPanel>
-                    <Button Foreground="White" Background="Gray"  Cursor="Hand" FontFamily="Calibri" FontSize="12" Margin="5" Width="130" Click="Log">Log</Button>
+                    <StackPanel Orientation="Horizontal">
 
-                </StackPanel>
+                        <Button Foreground="White" Background="Gray"  Cursor="Hand" FontFamily="Calibri" FontSize="12" Margin="5" Width="130" Click="Log">Log</Button>
+                        <CheckBox VerticalAlignment="Center" HorizontalAlignment="Right" Margin="30,0,0,0" Name="Check_Multiselect" Foreground="White" Checked="Multiselect" Unchecked="Multiselect">Multiselect</CheckBox>
+
+                    </StackPanel>
+                 </StackPanel>
 
             </StackPanel>
           
