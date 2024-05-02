@@ -129,7 +129,9 @@ namespace Games_Database
                     if (r.Title.ToLower() == name.ToLower())
                     {
                         Logg.Add($"{r.Disk}:" + r.Title);
-                        return true;
+                    MessageBox.Show("A record with this title exists.");
+                    return true;
+
                     }
                 }
  
@@ -141,7 +143,7 @@ namespace Games_Database
         private void Update(object sender, RoutedEventArgs e)
         {
             if (Field_Title.Text.Trim().Length == 0) { MessageBox.Show("Empty title name is not allowed"); return; }
-            if (!RecordExists(Field_Title.Text.Trim())) { return; }
+             
             if (Helper.IsInteger(Field_Disk.Text) == false) { MessageBox.Show("Disk input is not integer"); return; }
             if (Lister.SelectedItems.Count!=1) { MessageBox.Show("Select 1 record"); return; }
          
@@ -264,6 +266,7 @@ namespace Games_Database
                     Lister.Items.Add(record.GetAsItem());
                 }
             }
+            Input_Disksz.Text = key.ToString();
         }
 
         private void ViewAllDisks(object sender, RoutedEventArgs e)
@@ -343,8 +346,15 @@ namespace Games_Database
 
         private void SelectedItem(object sender, SelectionChangedEventArgs e)
         {
+            Field_Title.Text = string.Empty;
+            Field_Series.Text = string.Empty;
+            Field_Disk.Text = string.Empty;
+            Field_Dev.Text = string.Empty;
+            Field_Pub.Text = string.Empty;
+            Field_Url.Text = string.Empty;
             if (Lister.SelectedItems.Count != 1) { return; }
-          //  if (Lister.SelectedItem !is ListBoxItem) { return; }
+            ButtonUpdate.IsEnabled = Lister.SelectedItems.Count == 1;
+            //  if (Lister.SelectedItem !is ListBoxItem) { return; }
             Record selected = GetSelectedRecord();
             Field_Title.Text = selected.Title;
             Field_Series.Text = selected.Series;
@@ -419,30 +429,89 @@ namespace Games_Database
 
              
         }
+          List<int> GetDisks( )
+        {
+            string input = Input_Disksz.Text.Trim();
+            if (input.Length == 0) { return new List<int>(); }
+            List<int> integers = new List<int>();
+            string[] substrings = input.Split(',');
+
+            foreach (string substring in substrings)
+            {
+                if (int.TryParse(substring, out int number))
+                {
+                    integers.Add(number);
+                }
+            }
+
+            return integers;
+        }
+        private List<string> GetKeywords()
+        {
+            List<string> result = InputSearch.Text.Trim().Split(",").ToList();
+            foreach (string record in result)
+            {
+                record.Trim();
+            }
+            return result;
+
+        }
         private List<Record> Search()
         {
             List<Record> results = new();
-            if (InputSearch.Text.Trim().Length == 0) { MessageBox.Show("Empty search"); goto skip; }
-            List<string> keywords = InputSearch.Text.Trim().Split(",").ToList();
+            
+            List<int> searchedDisks = GetDisks();
+
+
+
+
+            List<string> keywords = GetKeywords();
             for (int i = 0; i < keywords.Count; i++) { keywords[i] = keywords[i].ToLower(); }
             
             List<string> tags = GetCheckedTags();
-            
+           
             if (Check_Tags.IsChecked == true && tags.Count == 0) { goto skip; }
             
                 foreach (Record r in records)
                 {
+                if (searchedDisks.Count > 0)  { if (searchedDisks.Contains(r.Disk) == false) { continue; } }
+                if (keywords.Count == 0) { results.Add(r); continue; }  
                     if (Check_Tags.IsChecked == true) { if (r.Tags.Intersect(tags).Any() == false) { continue; } }
                     if (Check_Title.IsChecked == true) { if (ContainsAnySubstring(r.Title.ToLower(), keywords)) { results.Add(r); continue; } }
                     if (Check_Dev.IsChecked == true) { if (ContainsAnySubstring(r.Developer.ToLower(), keywords)) { results.Add(r); continue; } }
                     if (Check_Pub.IsChecked == true) { if (ContainsAnySubstring(r.Publisher.ToLower(), keywords)) { results.Add(r); continue; } }
                     if (Check_Series.IsChecked == true) { if (ContainsAnySubstring(r.Series.ToLower(), keywords)) { results.Add(r); continue; } }
                 }
- 
-           
+ skip:
+           return results;
+
+        
+        }
+        private List<Record> SearchWhite()
+        {
+            List<Record> results = new();
+            if (InputSearch.Text.Trim().Length == 0) { MessageBox.Show("Empty search"); goto skip; }
+            List<string> keywords = InputSearch.Text.Trim().Split(",").ToList();
+            for (int i = 0; i < keywords.Count; i++) { keywords[i] = keywords[i].ToLower(); }
+
+            List<string> tags = GetCheckedTags();
+
+            if (Check_Tags.IsChecked == true && tags.Count == 0) { goto skip; }
+
+            foreach (Record r in records)
+            {
+                if (r.ImageURL.Trim().Length > 0) { continue; }
+                if (Check_Tags.IsChecked == true) { if (r.Tags.Intersect(tags).Any() == false) { continue; } }
+                if (Check_Title.IsChecked == true) { if (ContainsAnySubstring(r.Title.ToLower(), keywords)) { results.Add(r); continue; } }
+                if (Check_Dev.IsChecked == true) { if (ContainsAnySubstring(r.Developer.ToLower(), keywords)) { results.Add(r); continue; } }
+                if (Check_Pub.IsChecked == true) { if (ContainsAnySubstring(r.Publisher.ToLower(), keywords)) { results.Add(r); continue; } }
+                if (Check_Series.IsChecked == true) { if (ContainsAnySubstring(r.Series.ToLower(), keywords)) { results.Add(r); continue; } }
+            }
+
+
 
         skip:
-            return results; 
+            return results;
         }
         private void Search(object sender, RoutedEventArgs e)
         {
@@ -563,7 +632,7 @@ namespace Games_Database
 
         private void ChangeRecordDisk(object sender, RoutedEventArgs e)
         {
-            if (Field_Disk.Text.Trim().Length == 0) { MessageBox.Show("Write disk number");return; }
+            if (Field_Disk.Text.Trim().Length == 0) { MessageBox.Show("enter disk number");return; }
             if (Helper.IsInteger(Field_Disk.Text) == false) { MessageBox.Show("Disk input is not integer"); return; }
             List<string> SelectedRecords = GetSelectedRecords();
             int disk = int.Parse(Field_Disk.Text);
@@ -572,6 +641,7 @@ namespace Games_Database
                 if (SelectedRecords.Contains( r.Title)) { r.Disk =  disk;  }
             }
             Search(null, null);
+            RefreshDiskList();
             SetSaved(false);
         }
 
@@ -626,6 +696,32 @@ namespace Games_Database
         private void PasteURL(object sender, RoutedEventArgs e)
         {
             Field_Url.Text = Clipboard.GetText();
+        }
+
+        private void SearchWhite(object sender, MouseButtonEventArgs e)
+        {
+            List<Record> results = SearchWhite();
+            SearchResultPreview.Text = "Search - " + results.Count.ToString();
+            Lister.Items.Clear();
+            foreach (Record r in results)
+            {
+                Lister.Items.Add(r.GetAsItem());
+            }
+        }
+
+        private void SearchCountWhite(object sender, MouseButtonEventArgs e)
+        {
+            List<Record> results = SearchWhite();
+
+            SearchResultPreview.Text = "Search - " + results.Count.ToString();
+        }
+
+        private void Input_Disksz_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Search(null,null);
+            }
         }
     }
 

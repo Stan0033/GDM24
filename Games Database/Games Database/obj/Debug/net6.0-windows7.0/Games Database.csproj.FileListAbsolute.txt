@@ -29,7 +29,6 @@ D:\Projects\C#\GDM24\GDM24\Games Database\Games Database\obj\Debug\net6.0-window
 D:\Projects\C#\GDM24\GDM24\Games Database\Games Database\obj\Debug\net6.0-windows7.0\enter_value.g.cs
 D:\Projects\C#\GDM24\GDM24\Games Database\Games Database\obj\Debug\net6.0-windows7.0\Logw.g.cs
 D:\Projects\C#\GDM24\GDM24\Games Database\Games Database\obj\Debug\net6.0-windows7.0\MainWindow.g.cs
-D:\Projects\C#\GDM24\GDM24\Games Database\Games Database\obj\Debug\net6.0-windows7.0\previewer.g.cs
 D:\Projects\C#\GDM24\GDM24\Games Database\Games Database\obj\Debug\net6.0-windows7.0\App.g.cs
 D:\Projects\C#\GDM24\GDM24\Games Database\Games Database\obj\Debug\net6.0-windows7.0\Games Database_Content.g.cs
 D:\Projects\C#\GDM24\GDM24\Games Database\Games Database\obj\Debug\net6.0-windows7.0\Games Database_MarkupCompile.cache
@@ -44,7 +43,6 @@ D:\Projects\C#\GDM24\GDM24\Games Database\Games Database\bin\Debug\net6.0-window
 D:\Projects\C#\GDM24\GDM24\Games Database\Games Database\bin\Debug\net6.0-windows7.0\Games Database.pdb
 D:\Projects\C#\GDM24\GDM24\Games Database\Games Database\obj\Debug\net6.0-windows7.0\enter_value.baml
 D:\Projects\C#\GDM24\GDM24\Games Database\Games Database\obj\Debug\net6.0-windows7.0\Logw.baml
-D:\Projects\C#\GDM24\GDM24\Games Database\Games Database\obj\Debug\net6.0-windows7.0\previewer.baml
 D:\Projects\C#\GDM24\GDM24\Games Database\Games Database\obj\Debug\net6.0-windows7.0\Games Database.g.resources
 D:\Projects\C#\GDM24\GDM24\Games Database\Games Database\obj\Debug\net6.0-windows7.0\Games Database.GeneratedMSBuildEditorConfig.editorconfig
 D:\Projects\C#\GDM24\GDM24\Games Database\Games Database\obj\Debug\net6.0-windows7.0\Games Database.AssemblyInfoInputs.cache

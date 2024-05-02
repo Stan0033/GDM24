@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
-        Title="GDM24 - games database manager" Height="600" Width="1300">
+        Title="GDM24 - games database manager" Height="600" Width="1400">
     <StackPanel Orientation="Horizontal">
-        <StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Title" Width="245" Foreground="Black" Background="Gold" TextAlignment="Center" FontSize="12" FontWeight="Bold"/>
+        <StackPanel  >
+            <StackPanel Orientation="Horizontal" >
+                <TextBlock Text="Title" Width="345" Foreground="Black" Background="Gold" TextAlignment="Center" FontSize="12" FontWeight="Bold"/>
                 <TextBlock Background="Black" Width="5"/>
                 <TextBlock Text="Disk" Width="145" Foreground="Black" Background="Gold" TextAlignment="Center" FontSize="12" FontWeight="Bold"/>
                 <TextBlock Background="Black" Width="5"/>
@@ -24,7 +24,7 @@
                 <TextBlock Text="Tags" Width="145" Foreground="Black" Background="Gold" TextAlignment="Center" FontSize="12" FontWeight="Bold"/>
             </StackPanel>
           
-            <ListBox Name="Lister" SelectionMode="Single" Width="1000" Height="570" Background="Black" Foreground="White"
+            <ListBox Name="Lister" SelectionMode="Single" Width="1100" Height="570" Background="Black" Foreground="White"
                      MouseDoubleClick="DeleteRecord" SelectionChanged="SelectedItem"></ListBox>
 
         </StackPanel>
@@ -34,7 +34,7 @@
         <StackPanel Height="600" Width="280" Name="MainPanel" Background="Black">
             <StackPanel Orientation="Horizontal">
                     <Button Foreground="White" Background="Blue" FontFamily="Calibri" Cursor="Hand"  FontSize="12" Margin="5" Click="Load">Load database</Button>
-                    <Button Name="Button_Save" Foreground="White" Background="Green" Cursor="Hand" FontFamily="Calibri" FontSize="12" Margin="5" Click="SaveChanges">Save changes</Button>
+                    <Button Name="Button_Save" Foreground="White" Background="Green" Cursor="Hand" FontFamily="Calibri" FontSize="12" Margin="5" Click="SaveChanges" IsEnabled="False">Save changes</Button>
                     <Button Foreground="White" Background="Red" FontFamily="Calibri" Cursor="Hand"  FontSize="12" Height="20" Margin="20,0,0,0" Click="ClearDB">Clear database</Button>
 
                 </StackPanel>
@@ -54,17 +54,17 @@
                     <Button Foreground="White" Background="Blue"  Cursor="Hand" FontFamily="Calibri" FontSize="12" Margin="5" Click="findDuplicates">Find duplicates</Button>
 
                 </StackPanel>
-               <StackPanel Orientation="Horizontal"> <TextBlock Foreground="White" Width="70" Text="Title"/>   <TextBox Name="Field_Title" Width="180"/><Button Click="SearchInGoogle" Width="20">S</Button> </StackPanel>
+               <StackPanel Orientation="Horizontal"> <TextBlock Foreground="White" Width="70" Text="Title"/>   <TextBox Name="Field_Title" Width="180"/><Button Click="SearchInGoogle" Width="20" Background="Blue" Foreground="White" Cursor="Hand">S</Button> </StackPanel>
                 <StackPanel Orientation="Horizontal"> <TextBlock Foreground="White" Width="70" Text="Series"/> <TextBox Width="200" Name="Field_Series"/> </StackPanel>
                 <StackPanel Orientation="Horizontal"> <TextBlock Foreground="White" Width="70" Text="Disk"/> <TextBox Width="200" Name="Field_Disk"/> </StackPanel>
                 <StackPanel Orientation="Horizontal"> <TextBlock Foreground="White" Width="70" Text="Developer"/> <TextBox Width="200" Name="Field_Dev"/> </StackPanel>
                 <StackPanel Orientation="Horizontal"> <TextBlock Foreground="White" Width="70" Text="Publisher"/> <TextBox Width="200" Name="Field_Pub"/> </StackPanel>
                 <StackPanel Orientation="Horizontal"> <TextBlock Foreground="White" Width="70" Text="Image URL"/> <TextBox Width="180" Name="Field_Url"/>
-                    <Button Click="PasteURL" Width="20">P</Button> </StackPanel>
+                    <Button Click="PasteURL" Width="20" Background="Blue" Foreground="White" Cursor="Hand"> P</Button> </StackPanel>
                 <StackPanel Orientation="Horizontal"> <TextBlock Foreground="White" Width="70" Text="Tags"/> <ListBox Name="GenresContainer" Width="200" Height="80"/> </StackPanel>
                 <StackPanel Orientation="Horizontal" Width="280">
                     <Button Foreground="White" Background="Blue"  Cursor="Hand" FontFamily="Calibri" FontSize="12" Margin="5" Width="50" Click="NewRecord">Add</Button>
-                    <Button Foreground="White" Background="Blue" Cursor="Hand"  FontFamily="Calibri" FontSize="12" Margin="5" Width="60" Click="Update">Update</Button>
+                    <Button Name="ButtonUpdate" Foreground="White" Background="Blue" Cursor="Hand"  FontFamily="Calibri" FontSize="12" Margin="5" Width="60" Click="Update">Update</Button>
                     <Button Foreground="White" Background="Blue" Cursor="Hand"  FontFamily="Calibri" FontSize="12" Margin="5" Width="60" Click="DeleteRecords">Delete</Button>
                     <Button Foreground="White" Background="Blue"  Cursor="Hand" FontFamily="Calibri" FontSize="12" Margin="5" Width="65" Click="ChangeRecordDisk">Change disk</Button>
                 </StackPanel>
@@ -89,12 +89,12 @@
                     <CheckBox Name="Check_Tags" Content="Ìnclude tag search from taglist" Foreground="Wheat" Width="275"/>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Width="100" Text="In disk/s" Foreground="Wheat"/>
-                        <TextBox Name="Input_Disksz" Width="150"/>
+                        <TextBox Name="Input_Disksz" Width="150" KeyDown="Input_Disksz_KeyDown"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <Button Foreground="White"  Cursor="Hand" Background="Blue" FontFamily="Calibri" FontSize="12" Margin="5" Width="130" Click="Search">Search</Button>
+                        <Button Foreground="White"  Cursor="Hand" Background="Blue" FontFamily="Calibri" FontSize="12" Margin="5" Width="130" Click="Search" MouseRightButtonDown="SearchWhite">Search</Button>
 
-                        <Button Foreground="White"  Cursor="Hand" Background="Blue" FontFamily="Calibri" FontSize="12" Margin="5" Width="130" Click="SearchCount">Search count</Button>
+                        <Button Foreground="White"  Cursor="Hand" Background="Blue" FontFamily="Calibri" FontSize="12" Margin="5" Width="130" Click="SearchCount" MouseRightButtonDown="SearchCountWhite">Search count</Button>
 
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">

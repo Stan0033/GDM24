@@ -13,9 +13,6 @@
     <Compile Update="Logw.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="previewer.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="enter_value.xaml">
@@ -25,9 +22,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="previewer.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

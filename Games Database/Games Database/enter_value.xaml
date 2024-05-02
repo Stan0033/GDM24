@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
-        Title="enter_value" Height="80" Width="100">
+        Title="enter_value" Height="80" Width="155">
     <StackPanel>
-        <TextBox Name="Input" Width="100" FontSize="16"></TextBox>
+        <TextBox Name="Input"  FontSize="16"></TextBox>
         <Button Click="Set">Set</Button>
     </StackPanel>
 </Window>
