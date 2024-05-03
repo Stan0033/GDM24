@@ -28,10 +28,10 @@
                      MouseDoubleClick="DeleteRecord" SelectionChanged="SelectedItem"></ListBox>
 
         </StackPanel>
-        <ScrollViewer VerticalScrollBarVisibility="Visible" Height="600" Width="300">
+         
 
         
-        <StackPanel Height="600" Width="280" Name="MainPanel" Background="Black">
+        <StackPanel Height="600" Width="300" Name="MainPanel" Background="Black">
             <StackPanel Orientation="Horizontal">
                     <Button Foreground="White" Background="Blue" FontFamily="Calibri" Cursor="Hand"  FontSize="12" Margin="5" Click="Load">Load database</Button>
                     <Button Name="Button_Save" Foreground="White" Background="Green" Cursor="Hand" FontFamily="Calibri" FontSize="12" Margin="5" Click="SaveChanges" IsEnabled="False">Save changes</Button>
@@ -84,6 +84,7 @@
                         <CheckBox Name="Check_Series" Content="Series" Foreground="Wheat" Width="60"/>
                         <CheckBox Name="Check_Dev" Content="Dev" Foreground="Wheat" Width="50"/>
                         <CheckBox Name="Check_Pub" Content="Pub" Foreground="Wheat" Width="50"/>
+                        <CheckBox Name="Check_Img" Content="Image" Foreground="Wheat" Width="60"/>
                        
                     </StackPanel>
                     <CheckBox Name="Check_Tags" Content="Ìnclude tag search from taglist" Foreground="Wheat" Width="275"/>
@@ -107,6 +108,6 @@
 
             </StackPanel>
           
-        </ScrollViewer>
+        
     </StackPanel>
 </Window>

@@ -475,6 +475,7 @@ namespace Games_Database
                 foreach (Record r in records)
                 {
                 if (searchedDisks.Count > 0)  { if (searchedDisks.Contains(r.Disk) == false) { continue; } }
+                if (Check_Img.IsChecked == true) { if (r.ImageURL.Length == 0) { continue; } }
                 if (keywords.Count == 0) { results.Add(r); continue; }  
                     if (Check_Tags.IsChecked == true) { if (r.Tags.Intersect(tags).Any() == false) { continue; } }
                     if (Check_Title.IsChecked == true) { if (ContainsAnySubstring(r.Title.ToLower(), keywords)) { results.Add(r); continue; } }
